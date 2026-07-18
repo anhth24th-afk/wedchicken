@@ -1,0 +1,92 @@
+@{
+    ViewData["Title"] = "Đăng nhập - Chicken King";
+    Layout = null; // Trang auth toàn màn hình, không dùng layout chính
+    string mode = ViewBag.Mode ?? "login";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+</head>
+<body>
+<div id="toast-container"></div>
+
+<!-- AUTH VIEW -->
+<div id="auth-view" class="min-h-screen auth-bg flex items-center justify-center p-6">
+  <div class="auth-card">
+    <a href="@Url.Action("Index", "Home")" class="auth-back-btn">
+      <i data-lucide="arrow-left" class="w5 h5 icon-variant"></i>
+    </a>
+    <div class="text-center auth-header">
+      <h1 class="auth-title">CHICKEN KING</h1>
+      <p id="auth-subtitle" class="auth-subtitle">Chào mừng bạn quay trở lại!</p>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+      <div style="background:rgba(244,63,94,0.1);color:#be123c;border-radius:1rem;padding:0.75rem 1rem;font-weight:700;font-size:0.875rem;margin-bottom:1rem;text-align:center;">
+        @ViewBag.Error
+      </div>
+    }
+
+    <form id="auth-form" class="auth-form" method="post"
+          data-login-url="@Url.Action("Login", "Account")"
+          data-register-url="@Url.Action("Register", "Account")"
+          action="@(mode == "register" ? Url.Action("Register", "Account") : Url.Action("Login", "Account"))">
+      @Html.AntiForgeryToken()
+      <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+      <div class="field-group">
+        <label class="field-label">Tên tài khoản</label>
+        <div class="input-wrap">
+          <i data-lucide="user" class="input-icon"></i>
+          <input id="auth-username" name="username" required class="text-input pl-input" placeholder="Ví dụ: chicken_lover" />
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Mật khẩu</label>
+        <div class="input-wrap">
+          <i data-lucide="lock" class="input-icon"></i>
+          <input id="auth-password" name="password" required type="password" class="text-input pl-input" placeholder="••••••••" />
+        </div>
+      </div>
+      <button type="submit" class="btn-primary btn-full">
+        <span id="auth-submit-text">Đăng nhập ngay</span>
+        <i data-lucide="chevron-right" class="w5 h5"></i>
+      </button>
+    </form>
+    <div class="text-center">
+      <button id="auth-mode-toggle" type="button" class="auth-mode-toggle">Chưa có tài khoản? Đăng ký ngay</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Chuyển đổi giữa Đăng nhập / Đăng ký (chỉ đổi action của form)
+  let authMode = '@mode';
+  const form = document.getElementById('auth-form');
+  const subtitle = document.getElementById('auth-subtitle');
+  const submitText = document.getElementById('auth-submit-text');
+  const toggleBtn = document.getElementById('auth-mode-toggle');
+
+  function applyAuthMode() {
+    subtitle.textContent = authMode === 'login' ? 'Chào mừng bạn quay trở lại!' : 'Tham gia cùng cộng đồng Gà Rán';
+    submitText.textContent = authMode === 'login' ? 'Đăng nhập ngay' : 'Đăng ký tài khoản';
+    toggleBtn.textContent = authMode === 'login' ? 'Chưa có tài khoản? Đăng ký ngay' : 'Đã có tài khoản? Quay lại đăng nhập';
+    form.action = authMode === 'login' ? form.dataset.loginUrl : form.dataset.registerUrl;
+  }
+  toggleBtn.addEventListener('click', () => {
+    authMode = authMode === 'login' ? 'register' : 'login';
+    applyAuthMode();
+  });
+  applyAuthMode();
+  lucide.createIcons();
+</script>
+</body>
+</html>

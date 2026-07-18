@@ -1,0 +1,37 @@
+<!-- Cart Overlay -->
+<div id="cart-overlay" class="hidden fixed inset-0 z-60 bg-black-60 backdrop-blur-md" onclick="setIsCartOpen(false)"></div>
+
+<!-- Cart Panel -->
+<div id="cart-panel" class="cart-panel cart-closed">
+  <div class="flex-between mb-8">
+    <div class="flex-row-gap">
+      <h2 class="cart-title">Giỏ hàng 🔥</h2>
+      <button id="cart-clear-btn" onclick="clearCart()" class="cart-clear-btn hidden">
+        <i data-lucide="trash-2" class="w3-5 h3-5"></i> Xóa sạch
+      </button>
+    </div>
+    <button onclick="setIsCartOpen(false)" class="icon-btn-neutral">
+      <i data-lucide="x" class="w6 h6"></i>
+    </button>
+  </div>
+
+  <div class="cart-items-wrap" id="cart-items"></div>
+
+  <div id="cart-footer" class="hidden border-t border-neutral-100 pt-6 mt-6 space-y-4">
+    <div class="space-y-2">
+      <input id="checkout-phone" class="text-input w-full text-sm" placeholder="Số điện thoại nhận hàng..." />
+      <input id="checkout-address" class="text-input w-full text-sm" placeholder="Địa chỉ giao hàng..." />
+    </div>
+    <div class="flex-between">
+      <span class="text-neutral-400 font-black uppercase tracking-widest text-2xs">Phí giao hàng</span>
+      <span class="font-black text-green-600 text-sm">Miễn phí ✨</span>
+    </div>
+    <div class="flex-between text-3xl font-black italic uppercase tracking-tighter">
+      <span>Tổng</span>
+      <span class="text-primary" id="cart-total-display">0đ</span>
+    </div>
+    <button onclick="handleCheckout()" class="btn-primary btn-full btn-checkout flex-row-gap justify-center">
+      Thanh toán ngay <i data-lucide="arrow-right" class="w5 h5"></i>
+    </button>
+  </div>
+</div>

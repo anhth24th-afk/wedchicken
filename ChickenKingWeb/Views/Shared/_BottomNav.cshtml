@@ -1,0 +1,27 @@
+@{
+    var controller = (string?)ViewContext.RouteData.Values["controller"] ?? "";
+    var action = (string?)ViewContext.RouteData.Values["action"] ?? "";
+    bool isHome = controller == "Home" && action == "Index";
+    bool isOrders = controller == "Orders";
+    bool isProfile = controller == "Account" && action == "Profile";
+}
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+  <a href="@Url.Action("Index", "Home")" class="nav-btn @(isHome ? "active-home" : "nav-orders-default")" style="text-decoration:none">
+    <i data-lucide="home" class="w6 h6"></i>
+    @if (isHome)
+    {
+      <span class="nav-label">Chủ</span>
+    }
+  </a>
+  <a href="@Url.Action("Index", "Orders")" class="nav-btn @(isOrders ? "nav-orders-active" : "nav-orders-default")" style="text-decoration:none">
+    <i data-lucide="receipt" class="w6 h6"></i>
+  </a>
+  <button onclick="setIsCartOpen(true)" class="nav-btn nav-cart-btn relative">
+    <i data-lucide="shopping-bag" class="w6 h6"></i>
+    <div id="nav-cart-count" class="cart-badge-nav hidden">0</div>
+  </button>
+  <a href="@Url.Action("Profile", "Account")" class="nav-btn @(isProfile ? "nav-profile-active" : "nav-profile-default")" style="text-decoration:none">
+    <i data-lucide="user" class="w6 h6"></i>
+  </a>
+</nav>

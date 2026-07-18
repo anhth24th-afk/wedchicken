@@ -1,0 +1,42 @@
+<!-- Sidebar (menu trái) -->
+<div id="sidebar-overlay" class="hidden fixed inset-0 z-60 bg-black-60 backdrop-blur-md" onclick="toggleSidebar(false)"></div>
+<aside id="sidebar" class="sidebar sidebar-closed">
+  <div class="flex-between mb-8">
+    <span class="brand-title">CHICKEN KING</span>
+    <button onclick="toggleSidebar(false)" class="icon-btn-neutral">
+      <i data-lucide="x" class="w5 h5"></i>
+    </button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="@Url.Action("Index", "Home")" class="sidebar-link">
+      <i data-lucide="home" class="w5 h5"></i> Trang chủ
+    </a>
+    <a href="@Url.Action("Index", "News")" class="sidebar-link">
+      <i data-lucide="newspaper" class="w5 h5"></i> Tin tức
+    </a>
+    <a href="@Url.Action("Index", "Orders")" class="sidebar-link">
+      <i data-lucide="receipt" class="w5 h5"></i> Đơn hàng của tôi
+    </a>
+    <a href="@Url.Action("Contact", "Home")" class="sidebar-link">
+      <i data-lucide="mail" class="w5 h5"></i> Liên hệ
+    </a>
+    @if (User.IsInRole("Admin"))
+    {
+      <a href="@Url.Action("Index", "Admin")" class="sidebar-link">
+        <i data-lucide="layout-dashboard" class="w5 h5"></i> Quản trị hệ thống
+      </a>
+    }
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+      <a href="@Url.Action("Logout", "Account")" class="sidebar-link">
+        <i data-lucide="log-out" class="w5 h5"></i> Đăng xuất
+      </a>
+    }
+    else
+    {
+      <a href="@Url.Action("Login", "Account")" class="sidebar-link">
+        <i data-lucide="log-in" class="w5 h5"></i> Đăng nhập
+      </a>
+    }
+  </nav>
+</aside>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chicken King - Ứng dụng đặt gà rán cao cấp" />
+  <title>Chicken King - Vua Gà Rán</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Lucide icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container"></div>
+
+<!-- AUTH VIEW -->
+<div id="auth-view" class="hidden min-h-screen auth-bg flex items-center justify-center p-6">
+  <div class="auth-card">
+    <button id="auth-back-btn" class="auth-back-btn">
+      <i data-lucide="arrow-left" class="w5 h5 icon-variant"></i>
+    </button>
+    <div class="text-center auth-header">
+      <h1 class="auth-title">CHICKEN KING</h1>
+      <p id="auth-subtitle" class="auth-subtitle">Chào mừng bạn quay trở lại!</p>
+    </div>
+    <form id="auth-form" class="auth-form">
+      <div class="field-group">
+        <label class="field-label">Tên tài khoản</label>
+        <div class="input-wrap">
+          <i data-lucide="user" class="input-icon"></i>
+          <input id="auth-username" required class="text-input pl-input" placeholder="Ví dụ: chicken_lover" />
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Mật khẩu</label>
+        <div class="input-wrap">
+          <i data-lucide="lock" class="input-icon"></i>
+          <input id="auth-password" required type="password" class="text-input pl-input" placeholder="••••••••" />
+        </div>
+      </div>
+      <button type="submit" class="btn-primary btn-full">
+        <span id="auth-submit-text">Đăng nhập ngay</span>
+        <i data-lucide="chevron-right" class="w5 h5"></i>
+      </button>
+    </form>
+    <div class="text-center">
+      <button id="auth-mode-toggle" class="auth-mode-toggle">Chưa có tài khoản? Đăng ký ngay</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN VIEW -->
+<div id="admin-view" class="hidden min-h-screen bg-neutral-50 pb-20">
+  <header class="admin-header">
+    <h1 class="admin-title">Quản trị Hệ thống</h1>
+    <div class="admin-nav-tabs">
+      <button onclick="adminToggleView()" class="admin-nav-btn border-btn">
+        <i data-lucide="home" class="w4 h4 text-primary"></i> Xem trang chủ
+      </button>
+      <button onclick="adminSetTab('products')" id="admin-tab-products" class="admin-nav-btn active-tab">
+        <i data-lucide="package" class="w4 h4"></i> Sản phẩm
+      </button>
+      <button onclick="adminSetTab('orders')" id="admin-tab-orders" class="admin-nav-btn">
+        <i data-lucide="shopping-cart" class="w4 h4"></i> Đơn hàng
+      </button>
+      <button onclick="adminSetTab('revenue')" id="admin-tab-revenue" class="admin-nav-btn">
+        <i data-lucide="trending-up" class="w4 h4"></i> Doanh thu
+      </button>
+      <button onclick="adminSetTab('users')" id="admin-tab-users" class="admin-nav-btn">
+        <i data-lucide="user" class="w4 h4"></i> Người dùng
+      </button>
+      <button onclick="handleLogout()" class="admin-logout-btn">
+        <i data-lucide="log-out" class="w5 h5"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- Products Tab -->
+    <div id="admin-products-tab" class="admin-tab-content space-y-6">
+      <div class="flex-between">
+        <h2 class="section-title" id="admin-products-count">Danh sách Sản phẩm</h2>
+        <button onclick="openAddProductForm()" class="btn-primary flex-row-gap">
+          <i data-lucide="plus" class="w5 h5"></i> Thêm món mới
+        </button>
+      </div>
+      <div id="admin-products-grid" class="admin-products-grid"></div>
+    </div>
+
+    <!-- Orders Tab -->
+    <div id="admin-orders-tab" class="admin-tab-content hidden space-y-6">
+      <h2 class="section-title" id="admin-orders-count">Đơn hàng hiện tại</h2>
+      <div id="admin-orders-list" class="space-y-4"></div>
+    </div>
+
+    <!-- Revenue Tab -->
+    <div id="admin-revenue-tab" class="admin-tab-content hidden space-y-8">
+      <h2 class="section-title-italic">Báo cáo Doanh thu</h2>
+      <div class="revenue-cards-grid">
+        <div class="revenue-card">
+          <div class="flex-between mb-2">
+            <div class="revenue-icon green"><i data-lucide="dollar-sign" class="w6 h6"></i></div>
+            <i data-lucide="trending-up" class="w5 h5 text-green-500"></i>
+          </div>
+          <p class="revenue-label">Doanh thu thực tế</p>
+          <p class="revenue-value" id="revenue-completed">0đ</p>
+        </div>
+        <div class="revenue-card">
+          <div class="flex-between mb-2">
+            <div class="revenue-icon amber"><i data-lucide="calendar" class="w6 h6"></i></div>
+          </div>
+          <p class="revenue-label">Tiền đang chờ</p>
+          <p class="revenue-value" id="revenue-pending">0đ</p>
+        </div>
+        <div class="revenue-card">
+          <div class="flex-between mb-2">
+            <div class="revenue-icon rose"><i data-lucide="package" class="w6 h6"></i></div>
+          </div>
+          <p class="revenue-label">Tổng đơn hoàn thành</p>
+          <p class="revenue-value" id="revenue-count">0 / 0</p>
+        </div>
+      </div>
+      <div class="bg-white p-8 rounded-card shadow-card border-card space-y-6">
+        <h3 class="text-lg font-bold">Lịch sử giao dịch</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="table-header">
+                <th class="th-cell">Mã Đơn</th><th class="th-cell">Thời gian</th><th class="th-cell">Khách hàng</th><th class="th-cell text-right">Giá trị</th>
+              </tr>
+            </thead>
+            <tbody id="revenue-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Users Tab -->
+    <div id="admin-users-tab" class="admin-tab-content hidden space-y-6">
+      <h2 class="section-title-italic" id="admin-users-count">Quản lý người dùng</h2>
+      <div class="bg-white rounded-card shadow-card border-card overflow-hidden">
+        <table class="w-full text-left">
+          <thead class="bg-neutral-50">
+            <tr class="table-header">
+              <th class="th-cell-lg">Tên tài khoản</th>
+              <th class="th-cell-lg">Vai trò</th>
+              <th class="th-cell-lg text-right">Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="admin-users-table" class="divide-y-neutral"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Product Form Modal -->
+  <div id="product-form-modal" class="modal-backdrop hidden">
+    <div class="modal-box">
+      <div class="flex-between mb-6">
+        <h3 class="modal-title" id="product-form-title">Thêm sản phẩm</h3>
+        <button onclick="closeProductForm()" class="icon-btn-neutral">
+          <i data-lucide="x" class="w5 h5"></i>
+        </button>
+      </div>
+      <form id="product-form" class="space-y-4">
+        <input type="hidden" id="product-edit-id" />
+        <div class="space-y-2">
+          <label class="field-label">Tên món</label>
+          <input required id="product-form-name" class="text-input w-full" />
+        </div>
+        <div class="grid-2-col">
+          <div class="space-y-2">
+            <label class="field-label">Giá (VNĐ)</label>
+            <input type="number" required id="product-form-price" class="text-input w-full" />
+          </div>
+          <div class="space-y-2">
+            <label class="field-label">Danh mục</label>
+            <select id="product-form-category" class="text-input w-full">
+              <option>Gà Rán</option>
+              <option>Combo</option>
+              <option>Món Phụ</option>
+              <option>Đồ Uống</option>
+            </select>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="field-label">Mô tả</label>
+          <textarea id="product-form-desc" class="text-input w-full" rows="2"></textarea>
+        </div>
+        <div class="space-y-2">
+          <label class="field-label">Hình ảnh</label>
+          <div class="flex-row-gap">
+            <input placeholder="URL hình ảnh..." id="product-form-image" class="text-input flex-grow text-sm" oninput="updateImagePreview()" />
+            <label class="img-upload-btn">
+              <i data-lucide="image" class="w5 h5 text-neutral-500"></i>
+              <input type="file" class="hidden" accept="image/*" onchange="handleProductFileChange(event)" />
+            </label>
+          </div>
+          <img id="product-form-preview" src="" alt="Preview" class="hidden w-full h-32 object-cover rounded-2xl mt-2" />
+        </div>
+        <button type="submit" class="btn-primary btn-full">
+          <span id="product-form-submit-text">Xác nhận thêm</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN USER VIEW -->
+<div id="main-view" class="min-h-screen bg-surface font-body overflow-x-hidden relative">
+  <!-- Header -->
+  <header class="main-header">
+    <div class="flex-row-gap">
+      <button class="icon-btn-red">
+        <i data-lucide="menu" class="w6 h6"></i>
+      </button>
+      <span class="brand-title">CHICKEN KING</span>
+      <button id="admin-dashboard-btn" onclick="switchToAdmin()" class="hidden admin-badge-btn">
+        <i data-lucide="layout-dashboard" class="w3h3"></i> Quản trị
+      </button>
+    </div>
+    <div class="flex-row-gap">
+      <button onclick="setIsCartOpen(true)" class="cart-header-btn relative">
+        <i data-lucide="shopping-cart" class="w5 h5 text-primary"></i>
+        <span id="header-cart-count" class="cart-badge hidden">0</span>
+      </button>
+      <button id="header-login-btn" onclick="showAuthView()" class="btn-primary px-login py-login text-sm font-bold shadow-md">Đăng nhập</button>
+      <button id="header-avatar-btn" onclick="setActiveTab('profile')" class="hidden avatar-btn">
+        <img id="header-avatar-img" alt="User" class="w-full h-full object-cover" />
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Home Tab -->
+    <div id="tab-home">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-grid">
+          <div class="hero-text space-y-6">
+            <span class="hero-badge">Thương hiệu Vua Gà</span>
+            <h1 class="hero-heading">
+              Hương vị <span class="text-primary">Chicken King</span> nguyên bản
+            </h1>
+            <p class="hero-desc">
+              Chào mừng bạn đến với vương quốc gà rán! Chúng tôi tự hào mang đến những miếng gà giòn rụm, vàng óng với công thức bí truyền. Mỗi món ăn tại Chicken King đều là sự kết hợp giữa tâm huyết và nguyên liệu tươi sạch nhất mỗi ngày.
+            </p>
+            <div class="flex-row-gap pt-2">
+              <button onclick="document.getElementById('menu-section').scrollIntoView({behavior:'smooth'})" class="btn-primary px-8 py-4 shadow-red uppercase text-xs tracking-widest">
+                Đặt món ngay 🍗
+              </button>
+            </div>
+          </div>
+          <div class="hero-img-wrap">
+            <div class="hero-blur-bg"></div>
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop" alt="Chicken King Hero" class="hero-img" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Search Bar -->
+      <div class="search-wrap">
+        <i data-lucide="search" class="search-icon"></i>
+        <input id="search-input" oninput="onSearchInput()" class="search-input" placeholder="Tìm kiếm món ăn..." />
+      </div>
+
+      <!-- Category Filter -->
+      <section class="category-scroll no-scrollbar">
+        <button onclick="setActiveCategory('Tất cả')" data-cat="Tất cả" class="cat-btn active">Tất cả</button>
+        <button onclick="setActiveCategory('Gà Rán')" data-cat="Gà Rán" class="cat-btn">Gà Rán</button>
+        <button onclick="setActiveCategory('Combo')" data-cat="Combo" class="cat-btn">Combo</button>
+        <button onclick="setActiveCategory('Món Phụ')" data-cat="Món Phụ" class="cat-btn">Món Phụ</button>
+        <button onclick="setActiveCategory('Đồ Uống')" data-cat="Đồ Uống" class="cat-btn">Đồ Uống</button>
+      </section>
+
+      <!-- Menu Section -->
+      <section id="menu-section" class="space-y-12 pt-8">
+        <div class="menu-header px-2">
+          <div>
+            <h3 class="menu-title">Thực đơn đặc biệt</h3>
+            <div class="menu-underline"></div>
+          </div>
+          <button class="explore-btn">Khám phá</button>
+        </div>
+        <div id="menu-grid" class="menu-grid"></div>
+      </section>
+    </div>
+
+    <!-- Orders Tab -->
+    <div id="tab-orders" class="hidden space-y-6">
+      <h3 class="orders-title">Hành trình món ăn</h3>
+      <div id="orders-list" class="space-y-4"></div>
+    </div>
+
+    <!-- Profile Tab -->
+    <div id="tab-profile" class="hidden space-y-8 flex-col items-center py-10">
+      <div class="profile-avatar-wrap">
+        <div class="profile-avatar">
+          <img id="profile-avatar-img" alt="" class="w-full h-full object-cover" />
+        </div>
+        <div class="profile-star-badge">
+          <i data-lucide="star" class="w5 h5 fill-white text-white"></i>
+        </div>
+      </div>
+      <div class="text-center space-y-1">
+        <h3 class="profile-name" id="profile-username"></h3>
+        <p class="profile-subtitle">Gold Member • Chicken King</p>
+      </div>
+      <button onclick="handleLogout()" class="logout-btn">Đăng xuất</button>
+    </div>
+  </main>
+
+  <!-- Cart Overlay -->
+  <div id="cart-overlay" class="hidden fixed inset-0 z-60 bg-black/60 backdrop-blur-md" onclick="setIsCartOpen(false)"></div>
+
+  <!-- Cart Panel -->
+  <div id="cart-panel" class="cart-panel cart-closed">
+    <div class="flex-between mb-8">
+      <div class="flex-row-gap">
+        <h2 class="cart-title">Giỏ hàng 🔥</h2>
+        <button id="cart-clear-btn" onclick="clearCart()" class="cart-clear-btn hidden">
+          <i data-lucide="trash-2" class="w3-5 h3-5"></i> Xóa sạch
+        </button>
+      </div>
+      <button onclick="setIsCartOpen(false)" class="icon-btn-neutral">
+        <i data-lucide="x" class="w6 h6"></i>
+      </button>
+    </div>
+
+    <div class="cart-items-wrap" id="cart-items"></div>
+
+    <div id="cart-footer" class="hidden border-t border-neutral-100 pt-6 mt-6 space-y-4">
+      <div class="flex-between">
+        <span class="text-neutral-400 font-black uppercase tracking-widest text-2xs">Phí giao hàng</span>
+        <span class="font-black text-green-600 text-sm">Miễn phí ✨</span>
+      </div>
+      <div class="flex-between text-3xl font-black italic uppercase tracking-tighter">
+        <span>Tổng</span>
+        <span class="text-primary" id="cart-total-display">0đ</span>
+      </div>
+      <button onclick="handleCheckout()" class="btn-primary btn-full btn-checkout flex-row-gap justify-center">
+        Thanh toán ngay <i data-lucide="arrow-right" class="w5 h5"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <button onclick="setActiveTab('home')" id="nav-home" class="nav-btn active-home">
+      <i data-lucide="home" class="w6 h6"></i>
+      <span id="nav-home-label" class="nav-label">Chủ</span>
+    </button>
+    <button onclick="navOrders()" id="nav-orders" class="nav-btn nav-orders-default">
+      <i data-lucide="receipt" class="w6 h6"></i>
+    </button>
+    <button onclick="setIsCartOpen(true)" class="nav-btn nav-cart-btn relative">
+      <i data-lucide="shopping-bag" class="w6 h6"></i>
+      <div id="nav-cart-count" class="cart-badge-nav hidden">0</div>
+    </button>
+    <button onclick="navProfile()" id="nav-profile" class="nav-btn nav-profile-default">
+      <i data-lucide="user" class="w6 h6"></i>
+    </button>
+  </nav>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

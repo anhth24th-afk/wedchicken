@@ -1,0 +1,71 @@
+@model List<ChickenKingWeb.Models.Order>
+@{
+    ViewData["Title"] = "Đơn hàng - Quản trị Chicken King";
+    Layout = "_AdminLayout";
+}
+
+<div class="space-y-6">
+  <h2 class="section-title">Đơn hàng hiện tại (@Model.Count)</h2>
+
+  <div class="space-y-4">
+    @if (Model.Count == 0)
+    {
+      <div style="text-align:center;padding:3rem;color:#9ca3af;font-style:italic;">Chưa có đơn hàng nào</div>
+    }
+    @foreach (var order in Model)
+    {
+      <div class="admin-order-card">
+        <div class="admin-order-header">
+          <div class="admin-order-meta">
+            <p>ID: #@order.Id.ToString("D6")</p>
+            <h4>Khách hàng: @(order.User?.Username ?? order.Name)</h4>
+            <p>@order.Date.ToString("HH:mm dd/MM/yyyy")</p>
+            @if (!string.IsNullOrEmpty(order.Phone) || !string.IsNullOrEmpty(order.Address))
+            {
+              <p>📞 @order.Phone — 📍 @order.Address</p>
+            }
+          </div>
+          <div class="admin-order-actions">
+            @if (order.Status == "pending")
+            {
+              <form method="post" asp-action="UpdateOrderStatus" style="display:inline-flex;">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@order.Id" />
+                <input type="hidden" name="status" value="completed" />
+                <button type="submit" class="btn-complete">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:1rem;height:1rem;"><polyline points="20 6 9 17 4 12"/></svg>
+                  Hoàn thành
+                </button>
+              </form>
+              <form method="post" asp-action="UpdateOrderStatus" style="display:inline-flex;">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@order.Id" />
+                <input type="hidden" name="status" value="cancelled" />
+                <button type="submit" class="btn-cancel-order">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:1rem;height:1rem;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  Hủy
+                </button>
+              </form>
+            }
+            <span class="status-badge status-@order.Status">
+              @(order.Status == "pending" ? "Chờ xử lý" : order.Status == "completed" ? "Đã xong" : "Đã hủy")
+            </span>
+          </div>
+        </div>
+        <div class="order-items-section">
+          @foreach (var item in order.Details)
+          {
+            <div class="order-item-row">
+              <span>@(item.Product?.Name ?? "(đã xóa)") x@(item.Quantity)</span>
+              <span style="font-weight:700">@((item.Price * item.Quantity).ToString("N0"))đ</span>
+            </div>
+          }
+          <div class="order-total-row">
+            <span>Tổng cộng</span>
+            <span>@order.Total.ToString("N0")đ</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

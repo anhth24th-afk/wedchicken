@@ -1,0 +1,38 @@
+@model List<ChickenKingWeb.Models.Feedback>
+@{
+    ViewData["Title"] = "Phản hồi - Quản trị Chicken King";
+    Layout = "_AdminLayout";
+}
+
+<div class="space-y-6">
+  <h2 class="section-title-italic">Phản hồi khách hàng (@Model.Count)</h2>
+
+  <div class="space-y-4">
+    @if (Model.Count == 0)
+    {
+      <div style="text-align:center;padding:3rem;color:#9ca3af;font-style:italic;">Chưa có phản hồi nào</div>
+    }
+    @foreach (var f in Model)
+    {
+      <div class="admin-order-card">
+        <div class="admin-order-header">
+          <div class="admin-order-meta">
+            <p>@f.Date.ToString("HH:mm dd/MM/yyyy")</p>
+            <h4>@f.Name</h4>
+            <p>@f.Email</p>
+          </div>
+          <form method="post" asp-action="DeleteFeedback" onsubmit="return confirm('Xóa phản hồi này?')">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@f.Id" />
+            <button type="submit" class="icon-btn-del-user">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:1.25rem;height:1.25rem;"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+            </button>
+          </form>
+        </div>
+        <div class="order-items-section">
+          <p style="font-size:0.9rem;line-height:1.6;color:var(--on-surface-variant);">@f.Content</p>
+        </div>
+      </div>
+    }
+  </div>
+</div>

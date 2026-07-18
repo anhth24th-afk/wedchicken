@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Hồ sơ - Chicken King";
+    var username = User.Identity?.Name ?? "";
+}
+
+<div id="tab-profile" class="space-y-8 flex-col items-center py-10">
+  <div class="profile-avatar-wrap">
+    <div class="profile-avatar">
+      <img src="https://ui-avatars.com/api/?name=@(Uri.EscapeDataString(username))&size=256&background=FFCA4D&color=FFF" alt="@username" class="w-full h-full object-cover" />
+    </div>
+    <div class="profile-star-badge">
+      <i data-lucide="star" class="w5 h5 fill-white text-white"></i>
+    </div>
+  </div>
+  <div class="text-center space-y-1">
+    <h3 class="profile-name">@username</h3>
+    <p class="profile-subtitle">Gold Member • Chicken King</p>
+  </div>
+  <a href="@Url.Action("Logout", "Account")" class="logout-btn" style="text-decoration:none;display:inline-block;">Đăng xuất</a>
+</div>

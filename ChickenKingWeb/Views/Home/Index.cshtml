@@ -1,0 +1,91 @@
+@model List<ChickenKingWeb.Models.Product>
+@{
+    ViewData["Title"] = "Chicken King - Vua Gà Rán";
+    string activeCategory = ViewBag.ActiveCategory;
+    string searchQuery = ViewBag.SearchQuery;
+    var categories = new[] { "Tất cả", "Gà Rán", "Combo", "Món Phụ", "Đồ Uống" };
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-grid">
+    <div class="hero-text space-y-6">
+      <span class="hero-badge">Thương hiệu Vua Gà</span>
+      <h1 class="hero-heading">
+        Hương vị <span class="text-primary">Chicken King</span> nguyên bản
+      </h1>
+      <p class="hero-desc">
+        Chào mừng bạn đến với vương quốc gà rán! Chúng tôi tự hào mang đến những miếng gà giòn rụm, vàng óng với công thức bí truyền. Mỗi món ăn tại Chicken King đều là sự kết hợp giữa tâm huyết và nguyên liệu tươi sạch nhất mỗi ngày.
+      </p>
+      <div class="flex-row-gap pt-2">
+        <button onclick="document.getElementById('menu-section').scrollIntoView({behavior:'smooth'})" class="btn-primary px-8 py-4 shadow-red uppercase text-xs tracking-widest">
+          Đặt món ngay 🍗
+        </button>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-blur-bg"></div>
+      <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop" alt="Chicken King Hero" class="hero-img" />
+    </div>
+  </div>
+</section>
+
+<!-- Search Bar -->
+<form method="get" asp-action="Index" class="search-wrap">
+  <i data-lucide="search" class="search-icon"></i>
+  <input type="hidden" name="category" value="@activeCategory" />
+  <input id="search-input" name="q" value="@searchQuery" oninput="onSearchInput()" class="search-input" placeholder="Tìm kiếm món ăn..." />
+</form>
+
+<!-- Category Filter -->
+<section class="category-scroll no-scrollbar">
+  @foreach (var cat in categories)
+  {
+    <a href="@Url.Action("Index", "Home", new { category = cat, q = searchQuery })"
+       data-cat="@cat"
+       class="cat-btn @(cat == activeCategory ? "active" : "")"
+       style="text-decoration:none">@cat</a>
+  }
+</section>
+
+<!-- Menu Section -->
+<section id="menu-section" class="space-y-12 pt-8">
+  <div class="menu-header px-2">
+    <div>
+      <h3 class="menu-title">Thực đơn đặc biệt</h3>
+      <div class="menu-underline"></div>
+    </div>
+    <button class="explore-btn">Khám phá</button>
+  </div>
+  <div id="menu-grid" class="menu-grid">
+    @if (Model.Count == 0)
+    {
+      <div style="grid-column:1/-1;text-align:center;padding:3rem 0;color:#9ca3af;font-style:italic;font-weight:500;">Không tìm thấy món nào...</div>
+    }
+    @foreach (var item in Model)
+    {
+      <div class="menu-card" data-name="@item.Name.ToLower()" data-desc="@item.Description.ToLower()" data-category="@item.Category">
+        <div class="menu-card-img-wrap">
+          <img src="@item.Image" alt="@item.Name" referrerpolicy="no-referrer" onerror="this.src='https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=300&h=300&auto=format&fit=crop'" />
+          @if (item.Rating > 0)
+          {
+            <div class="menu-card-rating">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1" style="width:.75rem;height:.75rem;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              @item.Rating.ToString("0.0")
+            </div>
+          }
+        </div>
+        <div class="menu-card-info">
+          <h4 class="menu-card-name">@item.Name</h4>
+          <p class="menu-card-desc">@item.Description</p>
+          <div class="menu-card-footer">
+            <span class="menu-card-price">@item.Price.ToString("N0")đ</span>
+            <button class="menu-card-add" onclick="addToCart(@item.Id)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:1.25rem;height:1.25rem;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

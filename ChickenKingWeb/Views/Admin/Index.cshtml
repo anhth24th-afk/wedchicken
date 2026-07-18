@@ -1,0 +1,87 @@
+@model List<ChickenKingWeb.Models.Order>
+@{
+    ViewData["Title"] = "Thống kê - Quản trị Chicken King";
+    Layout = "_AdminLayout";
+    decimal revenueCompleted = ViewBag.RevenueCompleted;
+    decimal revenuePending = ViewBag.RevenuePending;
+}
+
+<div class="space-y-8">
+  <h2 class="section-title-italic">Bảng thống kê & Doanh thu</h2>
+
+  <div class="revenue-cards-grid">
+    <div class="revenue-card">
+      <div class="flex-between mb-2">
+        <div class="revenue-icon green"><i data-lucide="dollar-sign" class="w6 h6"></i></div>
+        <i data-lucide="trending-up" class="w5 h5 text-green-500"></i>
+      </div>
+      <p class="revenue-label">Doanh thu thực tế</p>
+      <p class="revenue-value">@revenueCompleted.ToString("N0")đ</p>
+    </div>
+    <div class="revenue-card">
+      <div class="flex-between mb-2">
+        <div class="revenue-icon amber"><i data-lucide="calendar" class="w6 h6"></i></div>
+      </div>
+      <p class="revenue-label">Tiền đang chờ</p>
+      <p class="revenue-value">@revenuePending.ToString("N0")đ</p>
+    </div>
+    <div class="revenue-card">
+      <div class="flex-between mb-2">
+        <div class="revenue-icon rose"><i data-lucide="package" class="w6 h6"></i></div>
+      </div>
+      <p class="revenue-label">Tổng đơn hoàn thành</p>
+      <p class="revenue-value">@ViewBag.CompletedCount / @ViewBag.TotalOrders</p>
+    </div>
+  </div>
+
+  <div class="revenue-cards-grid">
+    <div class="revenue-card">
+      <p class="revenue-label">Sản phẩm</p>
+      <p class="revenue-value">@ViewBag.ProductCount</p>
+    </div>
+    <div class="revenue-card">
+      <p class="revenue-label">Người dùng</p>
+      <p class="revenue-value">@ViewBag.UserCount</p>
+    </div>
+    <div class="revenue-card">
+      <p class="revenue-label">Bài viết</p>
+      <p class="revenue-value">@ViewBag.NewsCount</p>
+    </div>
+    <div class="revenue-card">
+      <p class="revenue-label">Nhân viên</p>
+      <p class="revenue-value">@ViewBag.EmployeeCount</p>
+    </div>
+    <div class="revenue-card">
+      <p class="revenue-label">Phản hồi</p>
+      <p class="revenue-value">@ViewBag.FeedbackCount</p>
+    </div>
+  </div>
+
+  <div class="bg-white p-8 rounded-card shadow-card border-card space-y-6">
+    <h3 class="text-lg font-bold">Lịch sử giao dịch</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left">
+        <thead>
+          <tr class="table-header">
+            <th class="th-cell">Mã Đơn</th><th class="th-cell">Thời gian</th><th class="th-cell">Khách hàng</th><th class="th-cell text-right">Giá trị</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (Model.Count == 0)
+          {
+            <tr><td colspan="4" style="text-align:center;padding:2rem;color:#9ca3af;font-style:italic;">Chưa có giao dịch hoàn thành</td></tr>
+          }
+          @foreach (var o in Model)
+          {
+            <tr class="revenue-row">
+              <td>#@o.Id.ToString("D6")</td>
+              <td style="font-size:.875rem;">@o.Date.ToString("dd/MM/yyyy")</td>
+              <td style="font-weight:700;">@(o.User?.Username ?? o.Name)</td>
+              <td style="text-align:right;">@o.Total.ToString("N0")đ</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1042 @@
+{
+  "Version": 1,
+  "Hash": "MLzTYhOw15xN9hJFjuTRKNMPVD+aofmy9xWj8yqdTxI=",
+  "Source": "ChickenKingWeb",
+  "BasePath": "_content/ChickenKingWeb",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ChickenKingWeb\\wwwroot",
+      "Source": "ChickenKingWeb",
+      "ContentRoot": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\",
+      "BasePath": "_content/ChickenKingWeb",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\8wleyy3xtg-s06254kq00.gz",
+      "SourceId": "ChickenKingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/ChickenKingWeb",
+      "RelativePath": "js/site#[.{fingerprint=s06254kq00}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\js\\site.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "wym3i0af52",
+      "Integrity": "CEmpD7f+o31uW8l++xkn2lR3MJXlf5HJZ2fLAMlwz14=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\hvx3lgdvr8-tg6biddqo6.gz",
+      "SourceId": "ChickenKingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/ChickenKingWeb",
+      "RelativePath": "css/style#[.{fingerprint=tg6biddqo6}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\css\\style.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "nk18wz8j9t",
+      "Integrity": "94Uy0AKnfpYCATIu+4Ag0tGE1bxjiS1O5LNZJ1cKnXo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\krzgsvwdrj-61n19gt1b8.gz",
+      "SourceId": "ChickenKingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/ChickenKingWeb",
+      "RelativePath": "favicon#[.{fingerprint=61n19gt1b8}]?.ico.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\favicon.ico",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "nezsohjtde",
+      "Integrity": "wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\css\\style.css",
+      "SourceId": "ChickenKingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\",
+      "BasePath": "_content/ChickenKingWeb",
+      "RelativePath": "css/style#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "tg6biddqo6",
+      "Integrity": "fesVr5qsMWpvCjbQSkIzR85hpu8kc26Po9G8UhrgXuk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\favicon.ico",
+      "SourceId": "ChickenKingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\",
+      "BasePath": "_content/ChickenKingWeb",
+      "RelativePath": "favicon#[.{fingerprint}]?.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "61n19gt1b8",
+      "Integrity": "Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\js\\site.js",
+      "SourceId": "ChickenKingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\",
+      "BasePath": "_content/ChickenKingWeb",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s06254kq00",
+      "Integrity": "BAC07P4zul7A+z9OhCKry127jTTkJYWzffhGs0Ye1NI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/style.css",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\hvx3lgdvr8-tg6biddqo6.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000143328078"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6976"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"94Uy0AKnfpYCATIu+4Ag0tGE1bxjiS1O5LNZJ1cKnXo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:03:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"fesVr5qsMWpvCjbQSkIzR85hpu8kc26Po9G8UhrgXuk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fesVr5qsMWpvCjbQSkIzR85hpu8kc26Po9G8UhrgXuk="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.css",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\css\\style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37578"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fesVr5qsMWpvCjbQSkIzR85hpu8kc26Po9G8UhrgXuk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:03:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fesVr5qsMWpvCjbQSkIzR85hpu8kc26Po9G8UhrgXuk="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.css.gz",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\hvx3lgdvr8-tg6biddqo6.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6976"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"94Uy0AKnfpYCATIu+4Ag0tGE1bxjiS1O5LNZJ1cKnXo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:03:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-94Uy0AKnfpYCATIu+4Ag0tGE1bxjiS1O5LNZJ1cKnXo="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.tg6biddqo6.css",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\hvx3lgdvr8-tg6biddqo6.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000143328078"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6976"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"94Uy0AKnfpYCATIu+4Ag0tGE1bxjiS1O5LNZJ1cKnXo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:03:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"fesVr5qsMWpvCjbQSkIzR85hpu8kc26Po9G8UhrgXuk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tg6biddqo6"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fesVr5qsMWpvCjbQSkIzR85hpu8kc26Po9G8UhrgXuk="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.tg6biddqo6.css",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\css\\style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37578"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fesVr5qsMWpvCjbQSkIzR85hpu8kc26Po9G8UhrgXuk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:03:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tg6biddqo6"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fesVr5qsMWpvCjbQSkIzR85hpu8kc26Po9G8UhrgXuk="
+        }
+      ]
+    },
+    {
+      "Route": "css/style.tg6biddqo6.css.gz",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\hvx3lgdvr8-tg6biddqo6.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6976"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"94Uy0AKnfpYCATIu+4Ag0tGE1bxjiS1O5LNZJ1cKnXo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:03:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tg6biddqo6"
+        },
+        {
+          "Name": "label",
+          "Value": "css/style.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-94Uy0AKnfpYCATIu+4Ag0tGE1bxjiS1O5LNZJ1cKnXo="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.61n19gt1b8.ico",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\krzgsvwdrj-61n19gt1b8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000405022276"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2468"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 14:47:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "61n19gt1b8"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.61n19gt1b8.ico",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5430"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 14:47:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "61n19gt1b8"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.61n19gt1b8.ico.gz",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\krzgsvwdrj-61n19gt1b8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2468"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 14:47:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "61n19gt1b8"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\krzgsvwdrj-61n19gt1b8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000405022276"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2468"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 14:47:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5430"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 14:47:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico.gz",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\krzgsvwdrj-61n19gt1b8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2468"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 14:47:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\8wleyy3xtg-s06254kq00.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000256213169"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3902"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CEmpD7f+o31uW8l++xkn2lR3MJXlf5HJZ2fLAMlwz14=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:04:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"BAC07P4zul7A+z9OhCKry127jTTkJYWzffhGs0Ye1NI=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BAC07P4zul7A+z9OhCKry127jTTkJYWzffhGs0Ye1NI="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14665"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BAC07P4zul7A+z9OhCKry127jTTkJYWzffhGs0Ye1NI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:04:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BAC07P4zul7A+z9OhCKry127jTTkJYWzffhGs0Ye1NI="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js.gz",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\8wleyy3xtg-s06254kq00.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3902"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CEmpD7f+o31uW8l++xkn2lR3MJXlf5HJZ2fLAMlwz14=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:04:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CEmpD7f+o31uW8l++xkn2lR3MJXlf5HJZ2fLAMlwz14="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.s06254kq00.js",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\8wleyy3xtg-s06254kq00.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000256213169"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3902"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CEmpD7f+o31uW8l++xkn2lR3MJXlf5HJZ2fLAMlwz14=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:04:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"BAC07P4zul7A+z9OhCKry127jTTkJYWzffhGs0Ye1NI=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s06254kq00"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BAC07P4zul7A+z9OhCKry127jTTkJYWzffhGs0Ye1NI="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.s06254kq00.js",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14665"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BAC07P4zul7A+z9OhCKry127jTTkJYWzffhGs0Ye1NI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:04:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s06254kq00"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BAC07P4zul7A+z9OhCKry127jTTkJYWzffhGs0Ye1NI="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.s06254kq00.js.gz",
+      "AssetFile": "D:\\chickenking\\ChickenKingWeb\\obj\\Debug\\net9.0\\compressed\\8wleyy3xtg-s06254kq00.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3902"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CEmpD7f+o31uW8l++xkn2lR3MJXlf5HJZ2fLAMlwz14=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 09 Jul 2026 15:04:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s06254kq00"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CEmpD7f+o31uW8l++xkn2lR3MJXlf5HJZ2fLAMlwz14="
+        }
+      ]
+    }
+  ]
+}

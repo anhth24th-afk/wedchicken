@@ -1,0 +1,108 @@
+@model List<ChickenKingWeb.Models.Employee>
+@{
+    ViewData["Title"] = "Nhân viên - Quản trị Chicken King";
+    Layout = "_AdminLayout";
+}
+
+<div class="space-y-6">
+  <div class="flex-between">
+    <h2 class="section-title">Quản lý Nhân viên (@Model.Count)</h2>
+    <button onclick="openAddEmployeeForm()" class="btn-primary flex-row-gap px-login py-login">
+      <i data-lucide="plus" class="w5 h5"></i> Thêm nhân viên
+    </button>
+  </div>
+
+  <div class="bg-white rounded-card shadow-card border-card overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left">
+        <thead class="bg-neutral-50">
+          <tr class="table-header">
+            <th class="th-cell-lg">Tên</th>
+            <th class="th-cell-lg">Số điện thoại</th>
+            <th class="th-cell-lg">Ca làm</th>
+            <th class="th-cell-lg">Vị trí</th>
+            <th class="th-cell-lg text-right">Lương</th>
+            <th class="th-cell-lg text-right">Hành động</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y-neutral">
+          @foreach (var e in Model)
+          {
+            <tr class="users-row">
+              <td>
+                <div class="user-initial">@e.Name.Substring(0, 1).ToUpper()</div>
+                <span style="font-weight:700;">@e.Name</span>
+              </td>
+              <td>@e.Phone</td>
+              <td><span class="role-badge role-user">@e.Shift</span></td>
+              <td>@e.Position</td>
+              <td style="text-align:right;font-weight:900;color:#16a34a;">@e.Salary.ToString("N0")đ</td>
+              <td style="text-align:right;white-space:nowrap;">
+                <button class="icon-btn-edit" style="display:inline-flex;"
+                        data-id="@e.Id" data-name="@e.Name" data-phone="@e.Phone"
+                        data-shift="@e.Shift" data-position="@e.Position" data-salary="@((long)e.Salary)"
+                        onclick="openEditEmployeeForm(this)">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:1rem;height:1rem;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </button>
+                <form method="post" asp-action="DeleteEmployee" onsubmit="return confirm('Xóa nhân viên này?')" style="display:inline-flex;">
+                  @Html.AntiForgeryToken()
+                  <input type="hidden" name="id" value="@e.Id" />
+                  <button type="submit" class="icon-btn-del-user">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:1.25rem;height:1.25rem;"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+                  </button>
+                </form>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Employee Form Modal -->
+<div id="employee-form-modal" class="modal-backdrop hidden">
+  <div class="modal-box">
+    <div class="flex-between mb-6">
+      <h3 class="modal-title" id="employee-form-title">Thêm nhân viên</h3>
+      <button onclick="closeEmployeeForm()" class="icon-btn-neutral">
+        <i data-lucide="x" class="w5 h5"></i>
+      </button>
+    </div>
+    <form method="post" asp-action="SaveEmployee" class="space-y-4">
+      @Html.AntiForgeryToken()
+      <input type="hidden" id="employee-edit-id" name="Id" value="0" />
+      <div class="space-y-2">
+        <label class="field-label">Tên nhân viên</label>
+        <input required id="employee-form-name" name="Name" class="text-input w-full" />
+      </div>
+      <div class="grid-2-col">
+        <div class="space-y-2">
+          <label class="field-label">Số điện thoại</label>
+          <input id="employee-form-phone" name="Phone" class="text-input w-full" />
+        </div>
+        <div class="space-y-2">
+          <label class="field-label">Ca làm</label>
+          <select id="employee-form-shift" name="Shift" class="text-input w-full">
+            <option>Sáng</option>
+            <option>Chiều</option>
+            <option>Tối</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid-2-col">
+        <div class="space-y-2">
+          <label class="field-label">Vị trí</label>
+          <input id="employee-form-position" name="Position" class="text-input w-full" />
+        </div>
+        <div class="space-y-2">
+          <label class="field-label">Lương (VNĐ)</label>
+          <input type="number" id="employee-form-salary" name="Salary" class="text-input w-full" />
+        </div>
+      </div>
+      <button type="submit" class="btn-primary btn-full py-4">
+        <span id="employee-form-submit-text">Xác nhận thêm</span>
+      </button>
+    </form>
+  </div>
+</div>

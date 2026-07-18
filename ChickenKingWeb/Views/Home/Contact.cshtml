@@ -1,0 +1,39 @@
+@model ChickenKingWeb.Models.Feedback
+@{
+    ViewData["Title"] = "Liên hệ - Chicken King";
+}
+
+<section class="space-y-8 pt-8" style="max-width:640px;margin:0 auto;">
+  <div class="px-2">
+    <h3 class="menu-title">Liên hệ với chúng tôi</h3>
+    <div class="menu-underline"></div>
+    <p class="hero-desc" style="margin-top:1rem;">
+      Bạn có góp ý về món ăn, dịch vụ hay muốn hợp tác? Hãy để lại lời nhắn — đội ngũ Chicken King sẽ phản hồi sớm nhất!
+    </p>
+  </div>
+
+  <form method="post" asp-action="Contact" class="contact-card space-y-4">
+    @Html.AntiForgeryToken()
+    <div class="field-group">
+      <label class="field-label">Họ và tên</label>
+      <div class="input-wrap">
+        <i data-lucide="user" class="input-icon"></i>
+        <input asp-for="Name" required class="text-input pl-input w-full" placeholder="Nguyễn Văn A" />
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Email</label>
+      <div class="input-wrap">
+        <i data-lucide="mail" class="input-icon"></i>
+        <input asp-for="Email" required type="email" class="text-input pl-input w-full" placeholder="ban@email.com" />
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Nội dung</label>
+      <textarea asp-for="Content" required class="text-input w-full" rows="5" placeholder="Lời nhắn của bạn..."></textarea>
+    </div>
+    <button type="submit" class="btn-primary btn-full py-4 uppercase text-xs tracking-widest">
+      Gửi phản hồi <i data-lucide="send" class="w4 h4"></i>
+    </button>
+  </form>
+</section>

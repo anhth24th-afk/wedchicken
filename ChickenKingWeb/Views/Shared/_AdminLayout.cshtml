@@ -1,0 +1,65 @@
+@{
+    var action = (string?)ViewContext.RouteData.Values["action"] ?? "";
+    string TabClass(string tab) => "admin-nav-btn" + (tab == action ? " active-tab" : "");
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@(ViewData["Title"] ?? "Quản trị - Chicken King")</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+</head>
+<body>
+
+<div id="toast-container"
+     data-toast="@(TempData["Toast"])"
+     data-toast-error="@(TempData["ToastError"])"></div>
+
+<div id="admin-view" class="min-h-screen bg-neutral-50 pb-20">
+  <header class="admin-header">
+    <h1 class="admin-title">Quản trị Hệ thống</h1>
+    <div class="admin-nav-tabs">
+      <a href="@Url.Action("Index", "Home")" class="admin-nav-btn border-btn" style="text-decoration:none">
+        <i data-lucide="home" class="w4 h4 text-primary"></i> Xem trang chủ
+      </a>
+      <a href="@Url.Action("Index", "Admin")" class="@TabClass("Index")" style="text-decoration:none">
+        <i data-lucide="trending-up" class="w4 h4"></i> Thống kê
+      </a>
+      <a href="@Url.Action("Products", "Admin")" class="@TabClass("Products")" style="text-decoration:none">
+        <i data-lucide="package" class="w4 h4"></i> Sản phẩm
+      </a>
+      <a href="@Url.Action("Orders", "Admin")" class="@TabClass("Orders")" style="text-decoration:none">
+        <i data-lucide="shopping-cart" class="w4 h4"></i> Đơn hàng
+      </a>
+      <a href="@Url.Action("News", "Admin")" class="@TabClass("News")" style="text-decoration:none">
+        <i data-lucide="newspaper" class="w4 h4"></i> Tin tức
+      </a>
+      <a href="@Url.Action("Employees", "Admin")" class="@TabClass("Employees")" style="text-decoration:none">
+        <i data-lucide="users" class="w4 h4"></i> Nhân viên
+      </a>
+      <a href="@Url.Action("Users", "Admin")" class="@TabClass("Users")" style="text-decoration:none">
+        <i data-lucide="user" class="w4 h4"></i> Người dùng
+      </a>
+      <a href="@Url.Action("Feedbacks", "Admin")" class="@TabClass("Feedbacks")" style="text-decoration:none">
+        <i data-lucide="message-circle" class="w4 h4"></i> Phản hồi
+      </a>
+      <a href="@Url.Action("Logout", "Account")" class="admin-logout-btn" style="text-decoration:none">
+        <i data-lucide="log-out" class="w5 h5"></i>
+      </a>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    @RenderBody()
+  </main>
+</div>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

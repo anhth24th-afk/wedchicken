@@ -1,0 +1,51 @@
+@model ChickenKingWeb.Models.News
+@{
+    ViewData["Title"] = $"{Model.Title} - Chicken King";
+    var related = (List<ChickenKingWeb.Models.News>)ViewBag.Related;
+}
+
+<article class="news-detail pt-8">
+  <a href="@Url.Action("Index", "News")" class="auth-mode-toggle" style="margin-bottom:1rem;display:inline-flex;">
+    <i data-lucide="arrow-left" class="w4 h4"></i> Quay lại tin tức
+  </a>
+
+  <span class="hero-badge">@Model.Category</span>
+  <h1 class="hero-heading" style="margin-top:0.5rem;">@Model.Title</h1>
+  <p class="news-card-date" style="margin-top:0.75rem;">Đăng ngày @Model.CreatedAt.ToString("dd/MM/yyyy")</p>
+
+  <div class="news-detail-img">
+    <img src="@Model.Image" alt="@Model.Title" onerror="this.src='https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop'" />
+  </div>
+
+  <div class="news-detail-content">
+    @foreach (var paragraph in Model.Content.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+    {
+      <p>@paragraph</p>
+    }
+  </div>
+
+  @if (related.Count > 0)
+  {
+    <div class="space-y-6" style="margin-top:3rem;">
+      <div>
+        <h3 class="menu-title" style="font-size:1.25rem;">Bài viết khác</h3>
+        <div class="menu-underline"></div>
+      </div>
+      <div class="news-grid">
+        @foreach (var item in related)
+        {
+          <a href="@Url.Action("Details", "News", new { id = item.Id })" class="news-card" style="text-decoration:none;">
+            <div class="news-card-img">
+              <img src="@item.Image" alt="@item.Title" onerror="this.src='https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=600&auto=format&fit=crop'" />
+              <span class="news-card-cat">@item.Category</span>
+            </div>
+            <div class="news-card-body">
+              <h4 class="news-card-title">@item.Title</h4>
+              <p class="news-card-date">@item.CreatedAt.ToString("dd/MM/yyyy")</p>
+            </div>
+          </a>
+        }
+      </div>
+    </div>
+  }
+</article>
